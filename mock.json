@@ -1,0 +1,13 @@
+{
+  "/hello/worlds": {
+    "message": "Hello worlds!",
+    "data" : {
+      "time": "now"
+    },
+    "worlds": [
+      "cross origin world",
+      "mars world",
+      "moon world"
+    ]
+  }
+}
