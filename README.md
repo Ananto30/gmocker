@@ -3,6 +3,8 @@ Run a blazing fast mock server in just seconds! 🚀
 
 All you need is to make a json file that contains path and response mapping. See an example [here](https://github.com/Ananto30/mocker#sample-mockjson-file).
 
+*Only json is supported for now, please create issues for bugs and new features.*
+
 ## Run
 With defaults - 
 ```bash
