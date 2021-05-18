@@ -1,5 +1,7 @@
-# Mocker
-Simplest mock server with FastHttp in Go.
+# Gmocker
+Run a blazing fast mock server in just seconds! 🚀
+
+All you need is to make a json file that contains path and response mapping. See an example [here](https://github.com/Ananto30/mocker#sample-mockjson-file).
 
 ## Run
 With defaults - 
