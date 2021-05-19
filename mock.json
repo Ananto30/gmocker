@@ -1,13 +1,16 @@
 {
   "/hello/worlds": {
-    "message": "Hello worlds!",
-    "data" : {
-      "time": "now"
-    },
-    "worlds": [
-      "cross origin world",
-      "mars world",
-      "moon world"
-    ]
+    "statusCode": 400,
+    "responseBody": {
+      "message": "Hello worlds!",
+      "data" : {
+        "time": "now"
+      },
+      "worlds": [
+        "cross origin world",
+        "mars world",
+        "moon world"
+      ]
+    }
   }
 }
