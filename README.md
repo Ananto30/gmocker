@@ -21,8 +21,11 @@ With custom flags -
 ## Sample mock.json file
 ```json
 {
-  "path": {
-    "jsonBody": ""
+  "<YOUR_PATH>": {
+    "statusCode": <INTEGER>,
+    "responseBody": {
+      <YOUR_RESPONSE_BODY> ...
+    }
   }
 }
 ```
@@ -32,19 +35,22 @@ Example -
 ```json
 {
   "/hello/worlds": {
-    "message": "Hello worlds!",
-    "data" : {
-      "time": "now"
-    },
-    "worlds": [
-      "cross origin world",
-      "mars world",
-      "moon world"
-    ]
+    "statusCode": 200,
+    "responseBody": {
+      "message": "Hello worlds!",
+      "data" : {
+        "time": "now"
+      },
+      "worlds": [
+        "cross origin world",
+        "mars world",
+        "moon world"
+      ]
+    }
   }
 }
 ```
-If a request lands in the server in path `/hello/worlds` the nested json will be sent as response.
+If a request lands in the server in path `/hello/worlds` the json object inside `responseBody` will be sent as response.
 
 **The request type [POST or GET] doesn't matter.**
 
