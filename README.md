@@ -15,11 +15,17 @@ With defaults -
 
 With custom flags - 
 ```bash
-./mocker -addr=<YOUR_HOST_AND_PORT> -file=<MOCK_JSON_FILE_LOCATION>
+./mocker -addr <YOUR_HOST_AND_PORT> -file <MOCK_JSON_FILE_LOCATION>
+```
+
+
+For windows - 
+```powershell
+mocker.exe -addr <YOUR_HOST_AND_PORT> -file <MOCK_JSON_FILE_LOCATION>
 ```
 
 ## Sample mock.json file
-```json
+```
 {
   "<YOUR_PATH>": {
     "statusCode": <INTEGER>,
