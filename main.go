@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/valyala/fasthttp"
+	"log"
 )
 
 var (
@@ -14,8 +15,14 @@ var (
 
 func main() {
 	flag.Parse()
-	ParseMockJson(*file)
-	verifyMockJson()
+	err := ParseMockJson(*file)
+	if err != nil {
+		log.Fatal(err)
+	}
+	err = VerifyMockJson()
+	if err != nil {
+		log.Fatal(err)
+	}
 	printPaths()
 
 	h := requestHandler
@@ -25,7 +32,7 @@ func main() {
 
 	fmt.Println("Starting server on", *addr)
 
-	err := fasthttp.ListenAndServe(*addr, h)
+	err = fasthttp.ListenAndServe(*addr, h)
 	if err != nil {
 		panic(err)
 	}

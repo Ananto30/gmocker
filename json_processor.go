@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -11,12 +12,12 @@ import (
 
 var respMap map[string]interface{}
 
-func ParseMockJson(file string) {
+func ParseMockJson(file string) error {
 	jsonFile, err := os.Open(file)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
-	fmt.Println("✔️Successfully opened:", file)
+	fmt.Println("✔ Successfully opened:", file)
 
 	defer func(jsonFile *os.File) {
 		err := jsonFile.Close()
@@ -29,15 +30,23 @@ func ParseMockJson(file string) {
 
 	err = json.Unmarshal(byteValue, &respMap)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
-	fmt.Println("✔️Successfully parsed:", file)
+	fmt.Println("✔ Successfully parsed:", file)
+
+	return nil
 }
 
-func verifyMockJson() {
+func VerifyMockJson() error {
 	for k := range respMap {
-		checkFieldPresent(respMap[k], k, "statusCode")
-		checkFieldPresent(respMap[k], k, "responseBody")
+		err := checkFieldPresent(respMap[k], k, "statusCode")
+		if err != nil {
+			return err
+		}
+		err = checkFieldPresent(respMap[k], k, "responseBody")
+		if err != nil {
+			return err
+		}
 
 		// TODO: Potential checks later for new features
 		//checkFieldPresent(respMap[k], k, "method")
@@ -46,14 +55,16 @@ func verifyMockJson() {
 		//	checkFieldPresent(respMap[k], k, "requestBody")
 		//}
 	}
+	return nil
 }
 
-func checkFieldPresent(i interface{}, key, fName string) {
+func checkFieldPresent(i interface{}, key, fName string) error {
 	dict := reflect.ValueOf(i)
 	val := dict.MapIndex(reflect.ValueOf(fName))
 	if val == reflect.ValueOf(nil) {
-		log.Fatalf("Missing `%v` field in %v", fName, key)
+		return errors.New(fmt.Sprintf("Missing `%v` field in %v", fName, key))
 	}
+	return nil
 }
 
 func printPaths() {

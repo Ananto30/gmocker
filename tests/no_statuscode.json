@@ -1,6 +1,5 @@
 {
   "/hello/worlds": {
-    "statusCode": 200,
     "responseBody": {
       "message": "Hello worlds!",
       "data": {
