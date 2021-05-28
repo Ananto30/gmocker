@@ -1,6 +1,7 @@
 # Gmocker
 [![codecov](https://codecov.io/gh/Ananto30/mocker/branch/main/graph/badge.svg?token=UO08KXFAV0)](https://codecov.io/gh/Ananto30/mocker)
 [![Maintainability](https://api.codeclimate.com/v1/badges/8d035908151fad8489ee/maintainability)](https://codeclimate.com/github/Ananto30/mocker/maintainability)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Ananto30/mocker)](https://goreportcard.com/report/github.com/Ananto30/mocker)
 
 Run a blazing fast mock server in just seconds! 🚀
 
