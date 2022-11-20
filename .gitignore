@@ -1,1 +1,6 @@
 .idea
+
+vendor
+
+coverage.out
+coverage
