@@ -2,7 +2,7 @@ module github.com/Ananto30/mocker
 
 go 1.18
 
-require github.com/valyala/fasthttp v1.45.0
+require github.com/valyala/fasthttp v1.47.0
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
